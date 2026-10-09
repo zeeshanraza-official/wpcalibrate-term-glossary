@@ -1,0 +1,14 @@
+/**
+ * WPCalibrate Term Glossary - Block Editor Styles
+ *
+ * @package WPCalibrate\TermGlossary
+ */
+
+.wpctg-block-placeholder {
+	padding: 24px;
+	background: #f8fafc;
+	border: 1px dashed #cbd5e1;
+	border-radius: 8px;
+	text-align: center;
+	color: #475569;
+}

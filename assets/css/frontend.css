@@ -1,0 +1,412 @@
+/**
+ * WPCalibrate Term Glossary - Frontend Stylesheet
+ *
+ * @package WPCalibrate\TermGlossary
+ */
+
+.wpctg-term-wrapper {
+	position: relative;
+	display: inline;
+}
+
+/* Term trigger styling */
+.wpctg-glossary-term {
+	color: #0284c7;
+	text-decoration: underline;
+	text-decoration-style: dotted;
+	text-underline-offset: 3px;
+	cursor: pointer;
+	font-weight: 500;
+	transition: color 0.15s ease, text-decoration-color 0.15s ease;
+	background: transparent;
+	border: none;
+	padding: 0;
+	font-size: inherit;
+	font-family: inherit;
+	line-height: inherit;
+}
+
+.wpctg-glossary-term:hover,
+.wpctg-glossary-term:focus-visible {
+	color: #0369a1;
+	text-decoration-style: solid;
+	outline: 2px solid #38bdf8;
+	outline-offset: 2px;
+	border-radius: 2px;
+}
+
+/* Tooltip container */
+.wpctg-tooltip {
+	position: absolute;
+	bottom: 125%;
+	left: 50%;
+	transform: translateX(-50%) translateY(4px);
+	z-index: 99999;
+	width: max-content;
+	max-width: 320px;
+	min-width: 220px;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.2s;
+	filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+}
+
+/* Tooltip state active / visible */
+.wpctg-term-wrapper:hover .wpctg-tooltip,
+.wpctg-term-wrapper:focus-within .wpctg-tooltip,
+.wpctg-tooltip.wpctg-is-active {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transform: translateX(-50%) translateY(0);
+}
+
+/* Tooltip Card Body */
+.wpctg-tooltip-inner {
+	display: block;
+	padding: 14px 16px;
+	border-radius: 8px;
+	font-size: 13.5px;
+	line-height: 1.5;
+	text-align: left;
+	box-sizing: border-box;
+}
+
+/* Theme Light */
+.wpctg-theme-light .wpctg-tooltip-inner {
+	background: #ffffff;
+	color: #334155;
+	border: 1px solid #e2e8f0;
+}
+
+/* Theme Dark */
+.wpctg-theme-dark .wpctg-tooltip-inner {
+	background: #0f172a;
+	color: #cbd5e1;
+	border: 1px solid #1e293b;
+}
+
+/* Tooltip Title */
+.wpctg-tooltip-title {
+	display: block;
+	font-weight: 700;
+	font-size: 14px;
+	margin-bottom: 6px;
+	color: #0f172a;
+}
+
+.wpctg-theme-dark .wpctg-tooltip-title {
+	color: #f8fafc;
+}
+
+/* Tooltip Body text */
+.wpctg-tooltip-body {
+	display: block;
+	margin-bottom: 8px;
+}
+
+/* Tooltip Footer Read More */
+.wpctg-tooltip-footer {
+	display: block;
+	margin-top: 8px;
+	padding-top: 6px;
+	border-top: 1px solid #f1f5f9;
+}
+
+.wpctg-theme-dark .wpctg-tooltip-footer {
+	border-top-color: #1e293b;
+}
+
+.wpctg-tooltip-more {
+	font-size: 12px;
+	font-weight: 600;
+	color: #0284c7;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.wpctg-tooltip-more:hover {
+	text-decoration: underline;
+	color: #0369a1;
+}
+
+/* Arrow indicator */
+.wpctg-tooltip::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	border-width: 6px;
+	border-style: solid;
+	border-color: #ffffff transparent transparent transparent;
+}
+
+.wpctg-theme-dark.wpctg-tooltip::after {
+	border-color: #0f172a transparent transparent transparent;
+}
+
+/* Viewport positioning adjustments */
+.wpctg-tooltip.wpctg-pos-bottom {
+	bottom: auto;
+	top: 130%;
+}
+
+.wpctg-tooltip.wpctg-pos-bottom::after {
+	top: auto;
+	bottom: 100%;
+	border-color: transparent transparent #ffffff transparent;
+}
+
+.wpctg-theme-dark.wpctg-tooltip.wpctg-pos-bottom::after {
+	border-color: transparent transparent #0f172a transparent;
+}
+
+.wpctg-tooltip.wpctg-pos-left {
+	left: 0;
+	transform: translateX(0);
+}
+.wpctg-tooltip.wpctg-pos-left::after {
+	left: 24px;
+}
+
+.wpctg-tooltip.wpctg-pos-right {
+	left: auto;
+	right: 0;
+	transform: translateX(0);
+}
+.wpctg-tooltip.wpctg-pos-right::after {
+	left: auto;
+	right: 24px;
+}
+
+/* A-Z Glossary Index Styles */
+.wpctg-index-container {
+	margin: 28px 0;
+	font-family: inherit;
+}
+
+.wpctg-index-toolbar {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 16px;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 24px;
+	padding: 16px;
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+}
+
+.wpctg-index-search-form {
+	flex: 1 1 260px;
+	display: flex;
+	gap: 8px;
+}
+
+.wpctg-index-search-input {
+	flex: 1;
+	padding: 8px 12px;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	font-size: 14px;
+	background: #ffffff;
+}
+
+.wpctg-index-search-btn {
+	padding: 8px 16px;
+	background: #0284c7;
+	color: #ffffff;
+	border: none;
+	border-radius: 6px;
+	cursor: pointer;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+.wpctg-index-category-filter select {
+	padding: 8px 12px;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	font-size: 14px;
+	background: #ffffff;
+}
+
+/* Alphabet Navigation Bar */
+.wpctg-alphabet-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 24px;
+	list-style: none;
+	padding: 0;
+}
+
+.wpctg-alphabet-item a,
+.wpctg-alphabet-item span {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 34px;
+	height: 34px;
+	padding: 0 8px;
+	border-radius: 6px;
+	font-size: 13.5px;
+	font-weight: 600;
+	text-decoration: none;
+	color: #0284c7;
+	background: #f1f5f9;
+	border: 1px solid #e2e8f0;
+	transition: all 0.15s ease;
+}
+
+.wpctg-alphabet-item a:hover {
+	background: #0284c7;
+	color: #ffffff;
+	border-color: #0284c7;
+}
+
+.wpctg-alphabet-item.wpctg-active a {
+	background: #0284c7;
+	color: #ffffff;
+	border-color: #0284c7;
+}
+
+.wpctg-alphabet-item.wpctg-disabled span {
+	color: #94a3b8;
+	background: #f8fafc;
+	cursor: default;
+}
+
+/* Term cards in index */
+.wpctg-index-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+	gap: 20px;
+}
+
+.wpctg-index-card {
+	background: #ffffff;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 20px;
+	transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.wpctg-index-card:hover {
+	border-color: #cbd5e1;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.08);
+}
+
+.wpctg-index-card-title {
+	margin: 0 0 8px;
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.wpctg-index-card-title a {
+	color: #0f172a;
+	text-decoration: none;
+}
+
+.wpctg-index-card-title a:hover {
+	color: #0284c7;
+}
+
+.wpctg-index-card-pronunciation {
+	font-size: 12.5px;
+	color: #64748b;
+	margin-bottom: 8px;
+	font-style: italic;
+}
+
+.wpctg-index-card-def {
+	font-size: 14px;
+	color: #475569;
+	line-height: 1.5;
+	flex: 1;
+	margin-bottom: 12px;
+}
+
+.wpctg-index-card-meta {
+	font-size: 12px;
+	color: #64748b;
+	padding-top: 10px;
+	border-top: 1px solid #f1f5f9;
+}
+
+/* Pagination */
+.wpctg-pagination {
+	display: flex;
+	gap: 8px;
+	justify-content: center;
+	margin-top: 28px;
+}
+
+.wpctg-pagination .page-numbers {
+	padding: 8px 14px;
+	border: 1px solid #cbd5e1;
+	border-radius: 6px;
+	text-decoration: none;
+	color: #334155;
+	font-weight: 500;
+}
+
+.wpctg-pagination .page-numbers.current {
+	background: #0284c7;
+	color: #ffffff;
+	border-color: #0284c7;
+}
+
+/* Single Term Definition Page */
+.wpctg-single-term-box {
+	background: #f8fafc;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	padding: 24px;
+	margin: 20px 0;
+}
+
+.wpctg-single-pronunciation {
+	font-size: 15px;
+	color: #64748b;
+	font-style: italic;
+	margin-bottom: 12px;
+}
+
+.wpctg-single-aliases,
+.wpctg-single-categories,
+.wpctg-single-related,
+.wpctg-single-source {
+	margin-top: 14px;
+	font-size: 14px;
+	color: #475569;
+}
+
+/* RTL layout support */
+[dir="rtl"] .wpctg-tooltip-inner {
+	text-align: right;
+}
+
+[dir="rtl"] .wpctg-tooltip.wpctg-pos-left {
+	left: auto;
+	right: 0;
+}
+
+[dir="rtl"] .wpctg-tooltip.wpctg-pos-right {
+	right: auto;
+	left: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.wpctg-tooltip,
+	.wpctg-glossary-term,
+	.wpctg-index-card {
+		transition: none !important;
+	}
+}
